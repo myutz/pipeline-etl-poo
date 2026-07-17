@@ -1,0 +1,61 @@
+id,divindade,complexidade,tempo_cura_minutos,peso_gramas,preco_venda,data_producao
+1,Ganesha,Com Detalhes,180,1215,25.68,22/07/2024
+2,Shiva,Com Detalhes,180,1490,25.71,27/03/2024
+3,Lakshmi,Com Detalhes,180,872,21.72,12/04/2024
+4,Lakshmi,Com Detalhes,180,794,20.97,06/10/2024
+5,Hanuman,Simples,120,583,15.83,16/02/2024
+6,Hanuman,Simples,120,661,13.47,18/07/2024
+7,Buda,Simples,120,1760,32.16,14/01/2024
+8,Buda,Simples,120,1716,31.51,16/07/2024
+9,Ganesha,Com Detalhes,180,1158,24.78,02/04/2024
+10,Saraswati,Simples,120,468,18.53,27/09/2024
+11,Hanuman,Simples,120,699,16.07,10/11/2024
+12,Durga,Com Detalhes,180,934,20.0,27/05/2024
+13,Shiva,Com Detalhes,180,1407,29.23,13/02/2024
+14,Shiva,Com Detalhes,180,1424,28.73,01/05/2024
+15,Saraswati,Simples,120,500,19.93,02/09/2024
+16,Saraswati,Simples,120,328,19.14,03/01/2024
+17,Lakshmi,Com Detalhes,180,727,20.52,02/04/2024
+18,Durga,Com Detalhes,180,965,22.41,28/08/2024
+19,Ganesha,Com Detalhes,180,1293,22.89,24/05/2024
+20,Shiva,Com Detalhes,180,1596,30.06,01/05/2024
+21,Krishna,Simples,120,327,14.56,27/06/2024
+22,Saraswati,Simples,120,370,17.65,25/10/2024
+23,Durga,Com Detalhes,180,1056,18.39,26/10/2024
+24,Ganesha,Com Detalhes,180,1267,24.23,24/04/2024
+25,Shiva,Com Detalhes,180,1531,30.28,09/07/2024
+26,Saraswati,Simples,120,418,15.67,31/10/2024
+27,Shiva,Com Detalhes,180,1548,28.48,03/06/2024
+28,Ganesha,Com Detalhes,180,1245,23.58,20/06/2024
+29,Buda,Simples,120,1709,30.72,25/11/2024
+30,Saraswati,Simples,120,393,18.89,20/07/2024
+31,Lakshmi,Com Detalhes,180,880,20.03,21/06/2024
+32,Krishna,Simples,120,343,11.88,01/04/2024
+33,Saraswati,Simples,120,401,16.24,09/02/2024
+34,Ganesha,Com Detalhes,180,1192,25.0,12/04/2024
+35,Saraswati,Simples,120,322,16.2,09/09/2024
+36,Ganesha,Com Detalhes,180,1278,26.9,19/10/2024
+37,Hanuman,Simples,120,576,14.45,19/02/2024
+38,Shiva,Com Detalhes,180,1521,26.06,16/06/2024
+39,Lakshmi,Com Detalhes,180,791,21.92,03/01/2024
+40,Krishna,Simples,120,321,12.7,29/12/2024
+41,Hanuman,Simples,120,527,17.39,03/11/2024
+42,Durga,Com Detalhes,180,1064,17.95,28/06/2024
+43,Durga,Com Detalhes,180,1010,18.41,05/05/2024
+44,Buda,Simples,120,1888,31.66,13/02/2024
+45,Saraswati,Simples,120,328,17.69,17/07/2024
+46,Buda,Simples,120,1709,27.84,12/06/2024
+47,Shiva,Com Detalhes,180,1570,29.77,28/04/2024
+48,Hanuman,Simples,120,680,17.41,27/04/2024
+49,Krishna,Simples,120,312,13.11,02/02/2024
+50,Shiva,Com Detalhes,180,1560,27.66,19/08/2024
+51,Durga,Com Detalhes,180,993,19.14,10/07/2024
+52,Hanuman,Simples,120,666,12.53,23/04/2024
+53,Krishna,Simples,120,291,10.38,22/10/2024
+54,Saraswati,Simples,120,411,20.38,14/01/2024
+55,Krishna,Simples,120,243,13.32,01/01/2024
+56,Hanuman,Simples,120,561,14.59,28/04/2024
+57,Saraswati,Simples,120,476,20.27,25/06/2024
+58,Ganesha,Com Detalhes,180,1119,23.63,12/08/2024
+59,Shiva,Com Detalhes,180,1584,30.38,30/07/2024
+60,Shiva,Com Detalhes,180,1544,27.11,01/10/2024
