@@ -59,3 +59,5 @@ print('--------------------------------')
 # 4. Quantas peças foram produzidas por mês? (dica: data_producao tem um atributo .dt.month que extrai o mês — mas pra isso funcionar, a coluna precisa estar no tipo datetime, não string)
 df['data_producao'] = pd.to_datetime(df['data_producao'], format='%d/%m/%Y')
 print(df.groupby(df['data_producao'].dt.month_name())['id'].count())
+
+print(df.loc[5])
