@@ -11,11 +11,11 @@ df = pd.read_csv(caminho_csv)
 if __name__ == '__main__':
     # TOP PRODUTOS MAIS VENDIDOS:
     top_produtos = df.groupby('divindade')['preco_venda'].sum().sort_values(ascending=False)
-    print(top_produtos)
+    print(f'Produtos mais vendidos: \n {top_produtos}')
 
     # PREÇO DE CADA GRAMA:
     df['preco_por_grama'] = df['preco_venda'] / df['peso_gramas']
-    print(df['preco_por_grama'].head())
+    print(f'Preço por grama em cada produto: \n {df['preco_por_grama'].head()}')
 
     # MÉDIA POR complexidade:
     media_complexidade = df.groupby(['complexidade'])['preco_por_grama'].mean().sort_values(ascending=False)
