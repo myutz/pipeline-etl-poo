@@ -1,3 +1,5 @@
+# Módulo 4 - Gerando relatórios
+# Novos relatórios gerados a partir de informações já existentes no arquivo CSV.
 import pandas as pd
 import os
 
@@ -5,81 +7,61 @@ pasta_atual = os.path.dirname(__file__)
 caminho_csv = os.path.join(pasta_atual, 'pecas_produzidas.csv')
 
 df = pd.read_csv(caminho_csv)
-print(df.head())
 
-# 1:
-print(df.groupby('divindade')['preco_venda'].sum().sort_values(ascending=False))
+if __name__ == '__main__':
+    # TOP PRODUTOS MAIS VENDIDOS:
+    top_produtos = df.groupby('divindade')['preco_venda'].sum().sort_values(ascending=False)
+    print(top_produtos)
 
+    # PREÇO DE CADA GRAMA:
+    df['preco_por_grama'] = df['preco_venda'] / df['peso_gramas']
+    print(df['preco_por_grama'].head())
 
-# 2:
-df['preco_por_grama'] = df['preco_venda'] / df['peso_gramas']
-print(df.groupby(['complexidade'])['preco_por_grama'].mean().sort_values(ascending=False))
+    # MÉDIA POR complexidade:
+    media_complexidade = df.groupby(['complexidade'])['preco_por_grama'].mean().sort_values(ascending=False)
+    print(media_complexidade)
 
+    # QUANTIDADE DE VENDAS POR TRIMESTRE:
+    df['data_producao'] = pd.to_datetime(df['data_producao'], format='%d/%m/%Y')
+    df['trimestre'] = df['data_producao'].dt.quarter
+    print(df.groupby('trimestre')['id'].count())
 
-# 3:
-df['data_producao'] = pd.to_datetime(df['data_producao'], format='%d/%m/%Y')
-df['trimestre'] = df['data_producao'].dt.quarter
-print(df.groupby('trimestre')['id'].count())
+    # MÉDIA preco_por_grama POR DIVINDADE:
+    media_divindade = df.groupby('divindade')['preco_por_grama'].mean().sort_values(ascending=True)
+    print(media_divindade)
 
+    
+    # QUANTIDADE TOTAL DE MATERIAL GASTO POR DIVINDADE:
+    quantidade_materia_divindade = df.groupby('divindade')['peso_gramas'].sum().sort_values(ascending=False)
+    print(quantidade_materia_divindade)
+    
+    # DIVINDADES QUE TIVERAM MAIS DE 7 PEÇAS PRODUZIDAS NO ANO:
+    contagem = df.groupby('divindade')['id'].count()
+    print(contagem[contagem >= 7])
 
-# 4:
-print(df.groupby('divindade')['preco_por_grama'].mean().sort_values(ascending=True))
+    # MÊS COM MAIOR RECEITA:
+    df['mes'] = df['data_producao'].dt.month_name()
+    mes_maior_receita = df.groupby('mes')['preco_venda'].sum().sort_values(ascending=False)
+    print(mes_maior_receita)
 
-# Pergunta 1
-# Qual o peso total de resina usado por divindade? Ordena do maior pro menor.
-print(df.groupby('divindade')['peso_gramas'].sum().sort_values(ascending=False))
-print('---------------------------------------------------------------------------')
+    # RECEITA MÉDIA POR TRIMESTRE:
+    media_trimestre = df.groupby('trimestre')['preco_venda'].mean()
+    print(media_trimestre)
 
-# Pergunta 2
-# Qual a média de preço de venda das peças simples produzidas no 2º trimestre?
-# (essa combina filtro + agrupamento)
-filtro = (df['complexidade'] == 'Simples') & (df['trimestre'] == 2)
-print(df[filtro]['preco_venda'].mean())
+    # PRODUTOS COM preco_por_grama ACIMA DA MÉDIA GERAL:
+    media_geral = df['preco_por_grama'].mean()
+    filtro = df[df['preco_por_grama'] > media_geral]
+    print(filtro)
 
-
-# Pergunta 3
-# Quais divindades tiveram mais de 7 peças produzidas no ano?
-contagem = df.groupby('divindade')['id'].count()
-print(contagem[contagem >= 7])
-
-
-# Pergunta 4
-# Qual o mês com maior receita total?
-df['mes'] = df['data_producao'].dt.month_name()
-print(df.groupby('mes')['preco_venda'].sum().sort_values(ascending=False))
-
-# 🔧 Rodada 3 — Raciocínio puro
-# Pergunta 1
-# Qual a receita média por trimestre?
-print(df.groupby('trimestre')['preco_venda'].mean())
-print(df.head())
-
-# Pergunta 2
-# Quais peças têm preco_por_grama acima da média geral?
-media_geral = df['preco_por_grama'].mean()
-filtro = df[df['preco_por_grama'] > media_geral]
-print(filtro.shape[0])
-
-# Pergunta 3
-# Qual divindade teve maior peso total de resina usada no 2º semestre?
-segundo_semestre = df['trimestre'] > 2
-print(df[segundo_semestre].groupby('divindade')['peso_gramas'].sum().sort_values(ascending=False))
+    # DIVINDADE QUE TEVE MAIOR PESO TOTAL DE RESINA USADA NO 2º SEMESTRE:
+    segundo_semestre = df['trimestre'] > 2
+    print(df[segundo_semestre].groupby('divindade')['peso_gramas'].sum().sort_values(ascending=False))
 
 
-# Pergunta 4
-# Quantas peças de cada complexidade foram produzidas por trimestre?
-print(df.head())
-quantidade = df.groupby(['complexidade', 'trimestre'])['id'].count()
-print(quantidade)
+    # QUANTIDADE DE PEÇAS DE CADA COMPLEXIDADE PRODUZIDAS POR TRIMESTRE:
+    quantidade = df.groupby(['complexidade', 'trimestre'])['id'].count()
+    print(quantidade)
 
-# 🔧 Rodada 4 — Módulo 4
-# Pergunta 1
-# Qual o peso médio das peças produzidas no 1º trimestre, separado por divindade?
-filtro = df['trimestre'] == 1
-peso = df[filtro].groupby(['divindade'])['peso_gramas'].mean()
-print(peso)
-
-# Pergunta 2
-# Quais divindades tiveram receita total acima de R$ 100 no ano?
-filtro = df.groupby('divindade')['preco_venda'].sum()
-print(filtro[filtro > 100])
+    # DIVINDADES QUE TIVERAM RECEITA TOTAL ACIMA DE R$100 NO ANO:
+    filtro = df.groupby('divindade')['preco_venda'].sum()
+    print(filtro[filtro > 100])
