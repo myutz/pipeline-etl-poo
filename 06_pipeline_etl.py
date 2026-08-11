@@ -1,3 +1,5 @@
+# Módulo 6 - Pipeline ETL
+# Utilizando POO, extrai os dados do  nosso arquivo CSV original, transforma alguns dados em novas colunas, e carrega um novo arquivo SQL.
 import pandas as pd
 import sqlite3
 import os
