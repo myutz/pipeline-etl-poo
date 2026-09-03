@@ -50,7 +50,6 @@ if __name__ == '__main__':
     transformador = Transformador(df_bruto)
     df_transformado = transformador.transformar()
     
-
     # L (Load)
     carregador = Carregador(caminho_banco)
     carregador.carregar(df_transformado)

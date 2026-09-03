@@ -6,8 +6,7 @@ import os
 
 pasta_atual = os.path.dirname(__file__)
 caminho_banco = os.path.join(pasta_atual, 'producao.db')
-caminho_csv = os.path.join(pasta_atual, 'pecas_produzidas.csv')  # ← adiciona essa linha
-
+caminho_csv = os.path.join(pasta_atual, 'pecas_produzidas.csv')  
 
 if __name__ == '__main__':
     # Cria a conexão — se o arquivo não existir, o SQLite cria automaticamente

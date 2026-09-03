@@ -21,7 +21,6 @@ def test_extrair_arquivo_inexistente():
         extrator = Extrator(caminho_csv)
         df = extrator.extrair()
 
-
 def test_transformar_data_producao():
     df = pd.DataFrame({"data_producao": ["16/08/2026"], 
                        "tempo_cura_minutos": [60],
@@ -38,8 +37,6 @@ def test_transformar_coluna_ausente():
                         "peso_gramas": [20]})
         transformador = Transformador(df)
         df = transformador.transformar()
-
-
 
 def test_carregar_caminho_errado():
     df = pd.read_csv("pecas_produzidas.csv")
